@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-VO3N483.Transactional_Ledger_DB"
+  DTS:DTSID="{F62D9BB4-702D-4E1C-939C-CCFEF7445BF3}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-VO3N483;Initial Catalog=Transactional_Ledger_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-FINANCIAL-DW-{F62D9BB4-702D-4E1C-939C-CCFEF7445BF3}DESKTOP-VO3N483.Transactional_Ledger_DB;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

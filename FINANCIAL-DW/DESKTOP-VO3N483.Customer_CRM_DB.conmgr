@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-VO3N483.Customer_CRM_DB"
+  DTS:DTSID="{8D9C1201-C0F3-46E1-9F37-DC6014630053}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-VO3N483;Initial Catalog=Customer_CRM_DB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-FINANCIAL-DW-{8D9C1201-C0F3-46E1-9F37-DC6014630053}DESKTOP-VO3N483.Customer_CRM_DB;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

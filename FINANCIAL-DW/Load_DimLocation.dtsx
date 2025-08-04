@@ -1,0 +1,648 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/2/2025 7:58:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VO3N483"
+  DTS:CreatorName="DESKTOP-VO3N483\User"
+  DTS:DTSID="{FC603F4F-5513-4441-86B7-FCC0E171B63F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{50FA8C96-2B20-449E-8A60-F4104B7E46F9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{24311E11-7EAB-4FAD-9398-148B34F58980}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\district"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="district"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[district]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    district_id,
+    district_name,
+    region,
+    no_of_inhabitants,
+    no_of_cities,
+    ratio_of_urban_inhabitants,
+    avg_salary,
+    unemployment_rate_96,
+    no_of_entrepreneurs_per_1000,
+    no_of_committed_crimes_96
+FROM
+    dbo.district;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\district.Connections[OleDbConnection]"
+                  connectionManagerID="{8D9C1201-C0F3-46E1-9F37-DC6014630053}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VO3N483.Customer_CRM_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[district_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[district_id]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[district_id]"
+                      name="district_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[district_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[district_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[district_name]"
+                      name="district_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_inhabitants]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_inhabitants]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_inhabitants]"
+                      name="no_of_inhabitants"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_cities]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_cities]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_cities]"
+                      name="no_of_cities"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[ratio_of_urban_inhabitants]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[ratio_of_urban_inhabitants]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[ratio_of_urban_inhabitants]"
+                      name="ratio_of_urban_inhabitants"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[avg_salary]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[avg_salary]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[avg_salary]"
+                      name="avg_salary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[unemployment_rate_96]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[unemployment_rate_96]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[unemployment_rate_96]"
+                      name="unemployment_rate_96"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_entrepreneurs_per_1000]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_entrepreneurs_per_1000]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_entrepreneurs_per_1000]"
+                      name="no_of_entrepreneurs_per_1000"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_committed_crimes_96]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_committed_crimes_96]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_committed_crimes_96]"
+                      name="no_of_committed_crimes_96"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[district_id]"
+                      dataType="i4"
+                      name="district_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[district_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="district_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_inhabitants]"
+                      dataType="i4"
+                      name="no_of_inhabitants" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_cities]"
+                      dataType="i4"
+                      name="no_of_cities" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[ratio_of_urban_inhabitants]"
+                      dataType="r8"
+                      name="ratio_of_urban_inhabitants" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[avg_salary]"
+                      dataType="r8"
+                      name="avg_salary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[unemployment_rate_96]"
+                      dataType="r8"
+                      name="unemployment_rate_96" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_entrepreneurs_per_1000]"
+                      dataType="i4"
+                      name="no_of_entrepreneurs_per_1000" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].ExternalColumns[no_of_committed_crimes_96]"
+                      dataType="i4"
+                      name="no_of_committed_crimes_96" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[district_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[district_id]"
+                      name="district_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[district_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[district_name]"
+                      name="district_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_inhabitants]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_inhabitants]"
+                      name="no_of_inhabitants" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_cities]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_cities]"
+                      name="no_of_cities" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[ratio_of_urban_inhabitants]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[ratio_of_urban_inhabitants]"
+                      name="ratio_of_urban_inhabitants" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[avg_salary]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[avg_salary]"
+                      name="avg_salary" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[unemployment_rate_96]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[unemployment_rate_96]"
+                      name="unemployment_rate_96" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_entrepreneurs_per_1000]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_entrepreneurs_per_1000]"
+                      name="no_of_entrepreneurs_per_1000" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_committed_crimes_96]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[no_of_committed_crimes_96]"
+                      name="no_of_committed_crimes_96" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\location_dim"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="location_dim"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Location_Dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\location_dim.Connections[OleDbConnection]"
+                  connectionManagerID="{28835E43-50DC-475D-9C24-6EDC29062885}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VO3N483.Banking_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[district_id]"
+                      cachedDataType="i4"
+                      cachedName="district_id"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[district_id]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[district_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[district_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="district_name"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[district_name]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[district_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[no_of_inhabitants]"
+                      cachedDataType="i4"
+                      cachedName="no_of_inhabitants"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_inhabitants]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_inhabitants]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[no_of_cities]"
+                      cachedDataType="i4"
+                      cachedName="no_of_cities"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_cities]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_cities]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[ratio_of_urban_inhabitants]"
+                      cachedDataType="r8"
+                      cachedName="ratio_of_urban_inhabitants"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[ratio_of_urban_inhabitants]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[ratio_of_urban_inhabitants]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[avg_salary]"
+                      cachedDataType="r8"
+                      cachedName="avg_salary"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[avg_salary]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[avg_salary]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[unemployment_rate_96]"
+                      cachedDataType="r8"
+                      cachedName="unemployment_rate_96"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[unemployment_rate_96]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[unemployment_rate_96]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[no_of_entrepreneurs_per_1000]"
+                      cachedDataType="i4"
+                      cachedName="no_of_entrepreneurs_per_1000"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_entrepreneurs_per_1000]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_entrepreneurs_per_1000]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].Columns[no_of_committed_crimes_96]"
+                      cachedDataType="i4"
+                      cachedName="no_of_committed_crimes_96"
+                      externalMetadataColumnId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_committed_crimes_96]"
+                      lineageId="Package\Data Flow Task\district.Outputs[OLE DB Source Output].Columns[no_of_committed_crimes_96]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[district_id]"
+                      dataType="i4"
+                      name="district_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[district_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="district_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_inhabitants]"
+                      dataType="i4"
+                      name="no_of_inhabitants" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_cities]"
+                      dataType="i4"
+                      name="no_of_cities" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[ratio_of_urban_inhabitants]"
+                      dataType="r8"
+                      name="ratio_of_urban_inhabitants" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[avg_salary]"
+                      dataType="r8"
+                      name="avg_salary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[unemployment_rate_96]"
+                      dataType="r8"
+                      name="unemployment_rate_96" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_entrepreneurs_per_1000]"
+                      dataType="i4"
+                      name="no_of_entrepreneurs_per_1000" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input].ExternalColumns[no_of_committed_crimes_96]"
+                      dataType="i4"
+                      name="no_of_committed_crimes_96" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\location_dim.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\location_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\location_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\location_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\location_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\location_dim.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\district.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Data Flow Task\location_dim"
+          TopLeft="448.999993309379,201.999996989965" />
+        <NodeLayout
+          Size="108.8,41.6"
+          Id="Package\Data Flow Task\district"
+          TopLeft="442.999993398786,77.9999988377094" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="497.399993398786,119.599998837709">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.999999910593,82.399998152256"
+              Start="0,0"
+              End="19.999999910593,74.899998152256">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.199999076128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.199999076128"
+                    Point2="0,41.199999076128"
+                    Point3="4,41.199999076128" />
+                  <mssgle:LineSegment
+                    End="15.999999910593,41.199999076128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.999999910593,41.199999076128"
+                    Point2="19.999999910593,41.199999076128"
+                    Point3="19.999999910593,45.199999076128" />
+                  <mssgle:LineSegment
+                    End="19.999999910593,74.899998152256" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\district">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\location_dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
