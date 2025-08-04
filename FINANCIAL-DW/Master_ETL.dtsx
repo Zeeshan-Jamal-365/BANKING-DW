@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Load_FactTransaction"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{90FE2606-8545-4066-A8A1-270E1821B024}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{6C4BF1D2-EBDD-44B2-A572-938F22001365}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -99,7 +99,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{28835E43-50DC-475D-9C24-6EDC29062885}"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.Transaction_Fact;&#xA;DELETE FROM dbo.Account_Dim;&#xA;DELETE FROM dbo.Client_Dim;&#xA;DELETE FROM dbo.Location_Dim;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;DELETE FROM dbo.Transaction_Fact;&#xA;DELETE FROM dbo.Location_Dim;&#xA;DELETE FROM dbo.Client_Dim;&#xA;DELETE FROM dbo.Account_Dim;&#xA;&#xA;&#xA;DBCC CHECKIDENT ('dbo.Location_Dim', RESEED, 0);&#xA;DBCC CHECKIDENT ('dbo.Client_Dim', RESEED, 0);&#xA;DBCC CHECKIDENT ('dbo.Account_Dim', RESEED, 0);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

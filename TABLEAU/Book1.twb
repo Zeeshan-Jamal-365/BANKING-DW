@@ -1,0 +1,914 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.0710.1712                               -->
+<workbook original-version='18.1' source-build='2025.2.1 (20252.25.0710.1712)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelRelationshipPerfOptions />
+    <_.fcp.ObjectModelSharedDimensions.true...ObjectModelSharedDimensions />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Account_Dim+ (Banking_DW)' inline='true' name='federated.1qeozmv1bx3dtl1gx1t8j0aknqq8' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='DESKTOP-VO3N483' name='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e'>
+            <connection authentication='sspi' class='sqlserver' dbname='Banking_DW' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='DESKTOP-VO3N483' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Account_Dim' table='[dbo].[Account_Dim]' type='table' />
+          <relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Transaction_Fact' table='[dbo].[Transaction_Fact]' type='table' />
+          <_.fcp.ObjectModelSharedDimensions.true...relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Calendar_Dim' table='[dbo].[Calendar_Dim]' type='table' />
+          <_.fcp.ObjectModelSharedDimensions.true...relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Client_Dim' table='[dbo].[Client_Dim]' type='table' />
+          <_.fcp.ObjectModelSharedDimensions.true...relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Location_Dim' table='[dbo].[Location_Dim]' type='table' />
+        </relation>
+        <cols>
+          <map key='[AccountKey (Transaction_Fact)]' value='[Transaction_Fact].[AccountKey]' />
+          <map key='[AccountKey]' value='[Account_Dim].[AccountKey]' />
+          <map key='[CalendarKey (Transaction_Fact)]' value='[Transaction_Fact].[CalendarKey]' />
+          <map key='[CalendarKey]' value='[Calendar_Dim].[CalendarKey]' />
+          <map key='[ClientKey (Transaction_Fact)]' value='[Transaction_Fact].[ClientKey]' />
+          <map key='[ClientKey]' value='[Client_Dim].[ClientKey]' />
+          <map key='[DayOfMonth_]' value='[Calendar_Dim].[DayOfMonth_]' />
+          <map key='[DayOfWeek_]' value='[Calendar_Dim].[DayOfWeek_]' />
+          <map key='[FullDate]' value='[Calendar_Dim].[FullDate]' />
+          <map key='[LocationKey (Transaction_Fact)]' value='[Transaction_Fact].[LocationKey]' />
+          <map key='[LocationKey]' value='[Location_Dim].[LocationKey]' />
+          <map key='[Month_]' value='[Calendar_Dim].[Month_]' />
+          <map key='[Quarter_]' value='[Calendar_Dim].[Quarter_]' />
+          <map key='[Year_]' value='[Calendar_Dim].[Year_]' />
+          <map key='[account_id]' value='[Account_Dim].[account_id]' />
+          <map key='[age]' value='[Client_Dim].[age]' />
+          <map key='[amount]' value='[Transaction_Fact].[amount]' />
+          <map key='[avg_salary]' value='[Location_Dim].[avg_salary]' />
+          <map key='[balance]' value='[Transaction_Fact].[balance]' />
+          <map key='[birth_number]' value='[Client_Dim].[birth_number]' />
+          <map key='[client_id]' value='[Client_Dim].[client_id]' />
+          <map key='[creation_date]' value='[Account_Dim].[creation_date]' />
+          <map key='[district_id]' value='[Location_Dim].[district_id]' />
+          <map key='[district_name]' value='[Location_Dim].[district_name]' />
+          <map key='[frequency]' value='[Account_Dim].[frequency]' />
+          <map key='[gender]' value='[Client_Dim].[gender]' />
+          <map key='[k_symbol]' value='[Transaction_Fact].[k_symbol]' />
+          <map key='[no_of_cities]' value='[Location_Dim].[no_of_cities]' />
+          <map key='[no_of_committed_crimes_96]' value='[Location_Dim].[no_of_committed_crimes_96]' />
+          <map key='[no_of_entrepreneurs_per_1000]' value='[Location_Dim].[no_of_entrepreneurs_per_1000]' />
+          <map key='[no_of_inhabitants]' value='[Location_Dim].[no_of_inhabitants]' />
+          <map key='[operation]' value='[Transaction_Fact].[operation]' />
+          <map key='[ratio_of_urban_inhabitants]' value='[Location_Dim].[ratio_of_urban_inhabitants]' />
+          <map key='[region]' value='[Location_Dim].[region]' />
+          <map key='[trans_id]' value='[Transaction_Fact].[trans_id]' />
+          <map key='[type]' value='[Transaction_Fact].[type]' />
+          <map key='[unemployment_rate_96]' value='[Location_Dim].[unemployment_rate_96]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>AccountKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[AccountKey]</local-name>
+            <parent-name>[Account_Dim]</parent-name>
+            <remote-alias>AccountKey</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Account_Dim_E5B921850FA34787B1C7C33927F03E70]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>account_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[account_id]</local-name>
+            <parent-name>[Account_Dim]</parent-name>
+            <remote-alias>account_id</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Account_Dim_E5B921850FA34787B1C7C33927F03E70]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>frequency</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[frequency]</local-name>
+            <parent-name>[Account_Dim]</parent-name>
+            <remote-alias>frequency</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Account_Dim_E5B921850FA34787B1C7C33927F03E70]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>creation_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[creation_date]</local-name>
+            <parent-name>[Account_Dim]</parent-name>
+            <remote-alias>creation_date</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+            <object-id>[Account_Dim_E5B921850FA34787B1C7C33927F03E70]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trans_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[trans_id]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>trans_id</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CalendarKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CalendarKey (Transaction_Fact)]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>CalendarKey</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AccountKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[AccountKey (Transaction_Fact)]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>AccountKey</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ClientKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[ClientKey (Transaction_Fact)]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>ClientKey</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LocationKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[LocationKey (Transaction_Fact)]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>LocationKey</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[amount]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>amount</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>balance</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[balance]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>balance</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>operation</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[operation]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>operation</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>k_symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[k_symbol]</local-name>
+            <parent-name>[Transaction_Fact]</parent-name>
+            <remote-alias>k_symbol</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]</object-id>
+          </metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>CalendarKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CalendarKey]</local-name>
+            <parent-name>[Calendar_Dim]</parent-name>
+            <remote-alias>CalendarKey</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>FullDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[FullDate]</local-name>
+            <parent-name>[Calendar_Dim]</parent-name>
+            <remote-alias>FullDate</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+            <object-id>[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>DayOfWeek_</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[DayOfWeek_]</local-name>
+            <parent-name>[Calendar_Dim]</parent-name>
+            <remote-alias>DayOfWeek_</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>DayOfMonth_</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[DayOfMonth_]</local-name>
+            <parent-name>[Calendar_Dim]</parent-name>
+            <remote-alias>DayOfMonth_</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>Month_</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Month_]</local-name>
+            <parent-name>[Calendar_Dim]</parent-name>
+            <remote-alias>Month_</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>Quarter_</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Quarter_]</local-name>
+            <parent-name>[Calendar_Dim]</parent-name>
+            <remote-alias>Quarter_</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>Year_</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Year_]</local-name>
+            <parent-name>[Calendar_Dim]</parent-name>
+            <remote-alias>Year_</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>ClientKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[ClientKey]</local-name>
+            <parent-name>[Client_Dim]</parent-name>
+            <remote-alias>ClientKey</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>client_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[client_id]</local-name>
+            <parent-name>[Client_Dim]</parent-name>
+            <remote-alias>client_id</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>birth_number</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[birth_number]</local-name>
+            <parent-name>[Client_Dim]</parent-name>
+            <remote-alias>birth_number</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[Client_Dim]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[Client_Dim]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>LocationKey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[LocationKey]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>LocationKey</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>district_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[district_id]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>district_id</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>district_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[district_name]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>district_name</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[region]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>region</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>no_of_inhabitants</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[no_of_inhabitants]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>no_of_inhabitants</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>no_of_cities</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[no_of_cities]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>no_of_cities</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>ratio_of_urban_inhabitants</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ratio_of_urban_inhabitants]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>ratio_of_urban_inhabitants</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>avg_salary</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_salary]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>avg_salary</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>unemployment_rate_96</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unemployment_rate_96]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>unemployment_rate_96</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>no_of_entrepreneurs_per_1000</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[no_of_entrepreneurs_per_1000]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>no_of_entrepreneurs_per_1000</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>no_of_committed_crimes_96</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[no_of_committed_crimes_96]</local-name>
+            <parent-name>[Location_Dim]</parent-name>
+            <remote-alias>no_of_committed_crimes_96</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='AccountKey (Transaction Fact)' datatype='integer' name='[AccountKey (Transaction_Fact)]' role='dimension' type='ordinal' />
+      <column caption='Account Key' datatype='integer' name='[AccountKey]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='CalendarKey (Transaction Fact)' datatype='integer' name='[CalendarKey (Transaction_Fact)]' role='dimension' type='ordinal' />
+      <column caption='Calendar Key' datatype='integer' name='[CalendarKey]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='ClientKey (Transaction Fact)' datatype='integer' name='[ClientKey (Transaction_Fact)]' role='dimension' type='ordinal' />
+      <column caption='Client Key' datatype='integer' name='[ClientKey]' role='dimension' type='ordinal' />
+      <column caption='DayOfMonth' datatype='integer' name='[DayOfMonth_]' role='dimension' type='quantitative' />
+      <column caption='DayOfWeek' datatype='string' name='[DayOfWeek_]' role='dimension' type='nominal' />
+      <column caption='Full Date' datatype='date' name='[FullDate]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='LocationKey (Transaction Fact)' datatype='integer' name='[LocationKey (Transaction_Fact)]' role='dimension' type='ordinal' />
+      <column caption='Location Key' datatype='integer' name='[LocationKey]' role='dimension' type='ordinal' />
+      <column caption='Month' datatype='string' name='[Month_]' role='dimension' type='nominal' />
+      <column caption='Quarter' datatype='string' name='[Quarter_]' role='dimension' type='nominal' />
+      <column caption='Year' datatype='integer' name='[Year_]' role='dimension' type='quantitative' />
+      <column caption='Account_Dim' datatype='table' name='[__tableau_internal_object_id__].[Account_Dim_E5B921850FA34787B1C7C33927F03E70]' role='measure' type='quantitative' />
+      <column caption='Calendar_Dim' datatype='table' name='[__tableau_internal_object_id__].[Calendar_Dim_23723848887A4BBC9A140E00523D6D5B]' role='measure' type='quantitative' />
+      <column caption='Client_Dim' datatype='table' name='[__tableau_internal_object_id__].[Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30]' role='measure' type='quantitative' />
+      <column caption='Location_Dim' datatype='table' name='[__tableau_internal_object_id__].[Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9]' role='measure' type='quantitative' />
+      <column caption='Transaction_Fact' datatype='table' name='[__tableau_internal_object_id__].[Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E]' role='measure' type='quantitative' />
+      <column caption='Account Id' datatype='integer' name='[account_id]' role='dimension' type='ordinal' />
+      <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+      <column caption='Amount' datatype='real' name='[amount]' role='measure' type='quantitative' />
+      <column caption='Avg Salary' datatype='real' name='[avg_salary]' role='measure' type='quantitative' />
+      <column caption='Balance' datatype='real' name='[balance]' role='measure' type='quantitative' />
+      <column caption='Birth Number' datatype='string' name='[birth_number]' role='dimension' type='nominal' />
+      <column caption='Client Id' datatype='integer' name='[client_id]' role='dimension' type='ordinal' />
+      <column caption='Creation Date' datatype='date' name='[creation_date]' role='dimension' type='ordinal' />
+      <column caption='District Id' datatype='integer' name='[district_id]' role='dimension' type='ordinal' />
+      <column caption='District Name' datatype='string' name='[district_name]' role='dimension' type='nominal' />
+      <column caption='Frequency' datatype='string' name='[frequency]' role='dimension' type='nominal' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='K Symbol' datatype='string' name='[k_symbol]' role='dimension' type='nominal' />
+      <column caption='No Of Cities' datatype='integer' name='[no_of_cities]' role='measure' type='quantitative' />
+      <column caption='No Of Committed Crimes 96' datatype='integer' name='[no_of_committed_crimes_96]' role='measure' type='quantitative' />
+      <column caption='No Of Entrepreneurs Per 1000' datatype='integer' name='[no_of_entrepreneurs_per_1000]' role='measure' type='quantitative' />
+      <column caption='No Of Inhabitants' datatype='integer' name='[no_of_inhabitants]' role='measure' type='quantitative' />
+      <column caption='Operation' datatype='string' name='[operation]' role='dimension' type='nominal' />
+      <column caption='Ratio Of Urban Inhabitants' datatype='real' name='[ratio_of_urban_inhabitants]' role='measure' type='quantitative' />
+      <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+      <column caption='Trans Id' datatype='integer' name='[trans_id]' role='dimension' type='ordinal' />
+      <column caption='Type' datatype='string' name='[type]' role='dimension' type='nominal' />
+      <column caption='Unemployment Rate 96' datatype='real' name='[unemployment_rate_96]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Account_Dim' id='Account_Dim_E5B921850FA34787B1C7C33927F03E70'>
+            <properties context=''>
+              <relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Account_Dim' table='[dbo].[Account_Dim]' type='table' />
+            </properties>
+          </object>
+          <_.fcp.ObjectModelSharedDimensions.true...object caption='Calendar_Dim' id='Calendar_Dim_23723848887A4BBC9A140E00523D6D5B'>
+            <properties context=''>
+              <relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Calendar_Dim' table='[dbo].[Calendar_Dim]' type='table' />
+            </properties>
+          </_.fcp.ObjectModelSharedDimensions.true...object>
+          <_.fcp.ObjectModelSharedDimensions.true...object caption='Client_Dim' id='Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30'>
+            <properties context=''>
+              <relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Client_Dim' table='[dbo].[Client_Dim]' type='table' />
+            </properties>
+          </_.fcp.ObjectModelSharedDimensions.true...object>
+          <_.fcp.ObjectModelSharedDimensions.true...object caption='Location_Dim' id='Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9'>
+            <properties context=''>
+              <relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Location_Dim' table='[dbo].[Location_Dim]' type='table' />
+            </properties>
+          </_.fcp.ObjectModelSharedDimensions.true...object>
+          <object caption='Transaction_Fact' id='Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E'>
+            <properties context=''>
+              <relation connection='sqlserver.01cm8og05xvdpr17jp1ho0nhvv6e' name='Transaction_Fact' table='[dbo].[Transaction_Fact]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[AccountKey]' />
+              <expression op='[AccountKey (Transaction_Fact)]' />
+            </expression>
+            <first-end-point is-db-set-unique-key='true' object-id='Account_Dim_E5B921850FA34787B1C7C33927F03E70' unique-key='true' />
+            <second-end-point object-id='Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E' />
+          </relationship>
+          <_.fcp.ObjectModelSharedDimensions.true...relationship>
+            <expression op='='>
+              <expression op='[CalendarKey]' />
+              <expression op='[CalendarKey (Transaction_Fact)]' />
+            </expression>
+            <first-end-point is-db-set-unique-key='true' object-id='Calendar_Dim_23723848887A4BBC9A140E00523D6D5B' unique-key='true' />
+            <second-end-point object-id='Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E' />
+          </_.fcp.ObjectModelSharedDimensions.true...relationship>
+          <_.fcp.ObjectModelSharedDimensions.true...relationship>
+            <expression op='='>
+              <expression op='[ClientKey]' />
+              <expression op='[ClientKey (Transaction_Fact)]' />
+            </expression>
+            <first-end-point is-db-set-unique-key='true' object-id='Client_Dim_0F8EAA6A778E4A8DB4E7203DE0D66A30' unique-key='true' />
+            <second-end-point object-id='Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E' />
+          </_.fcp.ObjectModelSharedDimensions.true...relationship>
+          <_.fcp.ObjectModelSharedDimensions.true...relationship>
+            <expression op='='>
+              <expression op='[LocationKey]' />
+              <expression op='[LocationKey (Transaction_Fact)]' />
+            </expression>
+            <first-end-point is-db-set-unique-key='true' object-id='Location_Dim_FC6CB5862FDF41EEA6779D878B0DF1B9' unique-key='true' />
+            <second-end-point object-id='Transaction_Fact_E523B5F38D1044ABB788007EFF918C7E' />
+          </_.fcp.ObjectModelSharedDimensions.true...relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{E2A5D2CD-4FB4-4EFD-A49F-D10206F7608E}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{68A0658B-648D-477B-82D8-653D0CEC1963}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

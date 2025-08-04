@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="8/3/2025 4:55:24 PM"
+  DTS:CreationDate="8/4/2025 11:52:57 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-VO3N483"
   DTS:CreatorName="DESKTOP-VO3N483\User"
-  DTS:DTSID="{18918C80-C7C5-4B67-A7A6-FF9E4F04447D}"
+  DTS:DTSID="{DED348A9-46EE-42E0-83EC-EB84110C40B5}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.2"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Load_FactTransaction"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{91BEF9A5-CD1B-4C8C-BA54-5160A1349669}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{B38CBCC6-97DE-44DD-815C-F729F7E7B7A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{D720192A-B582-4542-9E83-C57458C88C5C}"
+      DTS:DTSID="{88268EDB-BE45-41DD-A5B7-889FF0D2EEBE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task">
@@ -30,221 +30,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\Data Flow Task\FactTransaction"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="FactTransaction"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Transaction_Fact]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\FactTransaction.Connections[OleDbConnection]"
-                  connectionManagerID="{28835E43-50DC-475D-9C24-6EDC29062885}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VO3N483.Banking_DW]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[trans_id]"
-                      cachedDataType="i4"
-                      cachedName="trans_id"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[trans_id]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[trans_id]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[CalendarKey]"
-                      cachedDataType="i4"
-                      cachedName="CalendarKey"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[CalendarKey]"
-                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[CalendarKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[AccountKey]"
-                      cachedDataType="i4"
-                      cachedName="AccountKey"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
-                      lineageId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Match Output].Columns[AccountKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[ClientKey]"
-                      cachedDataType="i4"
-                      cachedName="ClientKey"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[ClientKey]"
-                      lineageId="Package\Data Flow Task\Lookup 2.Outputs[Lookup Match Output].Columns[ClientKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[LocationKey]"
-                      cachedDataType="i4"
-                      cachedName="LocationKey"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
-                      lineageId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Match Output].Columns[LocationKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[amount]"
-                      cachedDataType="r8"
-                      cachedName="amount"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[amount]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="type"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[type]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[type]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[operation]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="operation"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[operation]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[operation]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[k_symbol]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="k_symbol"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[k_symbol]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[k_symbol]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].Columns[balance]"
-                      cachedDataType="r8"
-                      cachedName="balance"
-                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[balance]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[balance]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[trans_id]"
-                      dataType="i4"
-                      name="trans_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[CalendarKey]"
-                      dataType="i4"
-                      name="CalendarKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
-                      dataType="i4"
-                      name="AccountKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[ClientKey]"
-                      dataType="i4"
-                      name="ClientKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
-                      dataType="i4"
-                      name="LocationKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
-                      dataType="r8"
-                      name="amount" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[balance]"
-                      dataType="r8"
-                      name="balance" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="type" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[operation]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="operation" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input].ExternalColumns[k_symbol]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="k_symbol" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\FactTransaction.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\FactTransaction.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\FactTransaction.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\FactTransaction.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\Data Flow Task\Lookup"
               componentClassID="Microsoft.Lookup"
@@ -302,7 +87,7 @@ where [refTable].[FullDate] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[date]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -329,7 +114,7 @@ where [refTable].[FullDate] = ?</property>
                       refId="Package\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[date]"
                       cachedDataType="dbDate"
                       cachedName="date"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[date]">
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -459,7 +244,7 @@ where [refTable].[account_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[account_id]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[account_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -486,7 +271,7 @@ where [refTable].[account_id] = ?</property>
                       refId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input].Columns[account_id]"
                       cachedDataType="i4"
                       cachedName="account_id"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[account_id]">
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[account_id]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -616,7 +401,7 @@ where [refTable].[client_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[client_id]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[client_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -643,7 +428,7 @@ where [refTable].[client_id] = ?</property>
                       refId="Package\Data Flow Task\Lookup 2.Inputs[Lookup Input].Columns[client_id]"
                       cachedDataType="i4"
                       cachedName="client_id"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[client_id]">
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[client_id]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -773,7 +558,7 @@ where [refTable].[district_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[district_id]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[district_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -800,7 +585,7 @@ where [refTable].[district_id] = ?</property>
                       refId="Package\Data Flow Task\Lookup 3.Inputs[Lookup Input].Columns[district_id]"
                       cachedDataType="i4"
                       cachedName="district_id"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[district_id]">
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[district_id]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -874,11 +659,226 @@ where [refTable].[district_id] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\TransactionLedgerDB"
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Transaction_Fact]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{28835E43-50DC-475D-9C24-6EDC29062885}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VO3N483.Banking_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[trans_id]"
+                      cachedDataType="i4"
+                      cachedName="trans_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[trans_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[trans_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[operation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="operation"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[operation]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[operation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[amount]"
+                      cachedDataType="r8"
+                      cachedName="amount"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[balance]"
+                      cachedDataType="r8"
+                      cachedName="balance"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[balance]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[balance]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[k_symbol]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="k_symbol"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[k_symbol]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[k_symbol]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CalendarKey]"
+                      cachedDataType="i4"
+                      cachedName="CalendarKey"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarKey]"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[CalendarKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountKey]"
+                      cachedDataType="i4"
+                      cachedName="AccountKey"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
+                      lineageId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Match Output].Columns[AccountKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClientKey]"
+                      cachedDataType="i4"
+                      cachedName="ClientKey"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientKey]"
+                      lineageId="Package\Data Flow Task\Lookup 2.Outputs[Lookup Match Output].Columns[ClientKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LocationKey]"
+                      cachedDataType="i4"
+                      cachedName="LocationKey"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      lineageId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Match Output].Columns[LocationKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[trans_id]"
+                      dataType="i4"
+                      name="trans_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarKey]"
+                      dataType="i4"
+                      name="CalendarKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
+                      dataType="i4"
+                      name="AccountKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientKey]"
+                      dataType="i4"
+                      name="ClientKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      dataType="r8"
+                      name="amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[balance]"
+                      dataType="r8"
+                      name="balance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[operation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="operation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[k_symbol]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="k_symbol" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="TransactionLedgerDB"
+              name="OLE DB Source"
               usesDispositions="true"
               version="7">
               <properties>
@@ -898,8 +898,7 @@ where [refTable].[district_id] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">-- This was the previous query
-SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
     t.trans_id, t.date, t.type, t.operation, t.amount, t.balance, t.k_symbol,
     a.account_id,
     disp.client_id,
@@ -936,7 +935,7 @@ WHERE
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\TransactionLedgerDB.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{F62D9BB4-702D-4E1C-939C-CCFEF7445BF3}:external"
                   connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VO3N483.Transactional_Ledger_DB]"
                   description="The OLE DB runtime connection used to access the database."
@@ -944,229 +943,229 @@ WHERE
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output]"
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[trans_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[trans_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[trans_id]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[trans_id]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[trans_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[trans_id]"
                       name="trans_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[date]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[date]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[date]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]"
                       name="date"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[type]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[type]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[type]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[type]"
                       length="50"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[type]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[type]"
                       name="type"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[operation]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[operation]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[operation]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[operation]"
                       length="50"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[operation]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[operation]"
                       name="operation"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[amount]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[amount]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[amount]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[amount]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[amount]"
                       name="amount"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[balance]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[balance]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[balance]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[balance]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[balance]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[balance]"
                       name="balance"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[k_symbol]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[k_symbol]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[k_symbol]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[k_symbol]"
                       length="50"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[k_symbol]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[k_symbol]"
                       name="k_symbol"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[account_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[account_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[account_id]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[account_id]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[account_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[account_id]"
                       name="account_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[district_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[client_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[district_id]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[district_id]"
-                      name="district_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[client_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[client_id]"
+                      name="client_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[client_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[district_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[client_id]"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].Columns[client_id]"
-                      name="client_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[district_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[district_id]"
+                      name="district_id"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[trans_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[trans_id]"
                       dataType="i4"
                       name="trans_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
                       dataType="dbDate"
                       name="date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[type]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[type]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="type" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[operation]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[operation]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="operation" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[amount]"
                       dataType="r8"
                       name="amount" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[balance]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[balance]"
                       dataType="r8"
                       name="balance" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[k_symbol]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[k_symbol]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="k_symbol" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[account_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[account_id]"
                       dataType="i4"
                       name="account_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[client_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[client_id]"
                       dataType="i4"
                       name="client_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output].ExternalColumns[district_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[district_id]"
                       dataType="i4"
                       name="district_id" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[trans_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[trans_id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[trans_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[trans_id]"
                       name="trans_id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[date]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
                       dataType="dbDate"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
                       name="date" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[type]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[type]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[type]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[type]"
                       name="type" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[operation]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[operation]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[operation]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[operation]"
                       name="operation" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[amount]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[amount]"
                       name="amount" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[balance]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[balance]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[balance]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[balance]"
                       name="balance" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[k_symbol]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[k_symbol]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[k_symbol]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[k_symbol]"
                       name="k_symbol" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[account_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[account_id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[account_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[account_id]"
                       name="account_id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[district_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[client_id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[district_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[client_id]"
+                      name="client_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[district_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[district_id]"
                       name="district_id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[client_id]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Error Output].Columns[client_id]"
-                      name="client_id" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1191,14 +1190,14 @@ WHERE
               startId="Package\Data Flow Task\Lookup 2.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output3]"
-              endId="Package\Data Flow Task\FactTransaction.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\TransactionLedgerDB.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1229,127 +1228,51 @@ WHERE
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="120.8,41.6"
-          Id="Package\Data Flow Task\Lookup 1"
-          TopLeft="234.999996498227,148.999997779727" />
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="134.999997988343,421.99999371171" />
         <NodeLayout
-          Size="120.8,41.6"
-          Id="Package\Data Flow Task\Lookup 3"
-          TopLeft="92.999998614192,239.999996423721" />
+          Size="152,41.6"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="145.799997839332,39.9999994039536" />
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\Data Flow Task\Lookup"
-          TopLeft="95.9999985694885,151.999997735024" />
+          TopLeft="153.999997705221,170.999997451901" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Data Flow Task\Lookup 1"
+          TopLeft="151.999997735024,226.999996617436" />
         <NodeLayout
           Size="120.8,41.6"
           Id="Package\Data Flow Task\Lookup 2"
-          TopLeft="381.999994307756,148.999997779727" />
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\Data Flow Task\TransactionLedgerDB"
-          TopLeft="56.9999991506338,47.9999992847442" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Data Flow Task\FactTransaction"
-          TopLeft="173.999997407198,356.999994680286" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
-          TopLeft="442.399994307756,190.599997779727">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-288.999995693564,49.3999986439943"
-              Start="0,0"
-              End="-288.999995693564,41.8999986439943">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.6999993219972" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.6999993219972"
-                    Point2="0,24.6999993219972"
-                    Point3="-4,24.6999993219972" />
-                  <mssgle:LineSegment
-                    End="-284.999995693564,24.6999993219972" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-284.999995693564,24.6999993219972"
-                    Point2="-288.999995693564,24.6999993219972"
-                    Point3="-288.999995693564,28.6999993219972" />
-                  <mssgle:LineSegment
-                    End="-288.999995693564,41.8999986439943" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-192.691384565532,29.6999993219972,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
-          TopLeft="208.799998569488,171.299997757375">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="26.1999979287386,0"
-              Start="0,0"
-              End="18.6999979287386,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.6999979287386,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-38.8413877543807,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="355.799996498227,169.799997779727">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="26.1999978095294,0"
-              Start="0,0"
-              End="18.6999978095294,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.6999978095294,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-38.8413878139853,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="146.999997809529,288.999995693564" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="149.699998860061,89.5999992847443">
+          TopLeft="221.799997839332,81.5999994039536">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62.3999984502793"
+              EndConnector="-11.4000001341105,89.3999980479479"
               Start="0,0"
-              End="0,54.8999984502793">
+              End="-11.4000001341105,81.8999980479479">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.8999984502793" />
+                    End="0,40.699999023974" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.699999023974"
+                    Point2="0,44.699999023974"
+                    Point3="-4,44.699999023974" />
+                  <mssgle:LineSegment
+                    End="-7.40000013411046,44.699999023974" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.40000013411046,44.699999023974"
+                    Point2="-11.4000001341105,44.699999023974"
+                    Point3="-11.4000001341105,48.699999023974" />
+                  <mssgle:LineSegment
+                    End="-11.4000001341105,81.8999980479479" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1359,44 +1282,188 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
-          TopLeft="153.399998614192,281.599996423721">
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="272.799997735024,247.799996617436">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="96.9999987930059,75.3999982565642"
+              EndConnector="-4.99999992549442,61.999999076128"
               Start="0,0"
-              End="96.9999987930059,67.8999982565642">
+              End="2.50000007450558,61.999999076128">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.6999991282821" />
+                    End="18.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.6999991282821"
-                    Point2="0,37.6999991282821"
-                    Point3="4,37.6999991282821" />
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
                   <mssgle:LineSegment
-                    End="92.9999987930059,37.6999991282821" />
+                    End="22.5,57.999999076128" />
                   <mssgle:CubicBezierSegment
-                    Point1="92.9999987930059,37.6999991282821"
-                    Point2="96.9999987930059,37.6999991282821"
-                    Point3="96.9999987930059,41.6999991282821" />
+                    Point1="22.5,57.999999076128"
+                    Point2="22.5,61.999999076128"
+                    Point3="18.5,61.999999076128" />
                   <mssgle:LineSegment
-                    End="96.9999987930059,67.8999982565642" />
+                    End="2.50000007450558,61.999999076128" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0.308612677752947,42.6999991282821,96.3827734375,11.609375"
+              BoundingBox="-25.69138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Data Flow Task\Lookup 3"
+          TopLeft="148.999997779727,357.599995231629" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
+          TopLeft="153.999997705221,191.799997451902">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-1.99999997019765,55.9999991655349"
+              Start="0,0"
+              End="-9.49999997019765,55.9999991655349">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.4999999701976,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.4999999701976,0"
+                    Point2="-24.4999999701976,0"
+                    Point3="-24.4999999701976,4" />
+                  <mssgle:LineSegment
+                    End="-24.4999999701976,51.9999991655349" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.4999999701976,51.9999991655349"
+                    Point2="-24.4999999701976,55.9999991655349"
+                    Point3="-20.4999999701976,55.9999991655349" />
+                  <mssgle:LineSegment
+                    End="-9.49999997019765,55.9999991655349" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-72.6913866889477,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
+          TopLeft="208.399997794628,330.599995693564">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.9999995380641"
+              Start="0,0"
+              End="0,19.4999995380641">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.4999995380641" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,3.94531226903206,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
+          TopLeft="209.399997779727,399.199995231629">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.2000002086163,22.7999984800815"
+              Start="0,0"
+              End="11.2000002086163,15.2999984800815">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.39999924004073" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.39999924004073"
+                    Point2="0,11.3999992400407"
+                    Point3="4,11.3999992400407" />
+                  <mssgle:LineSegment
+                    End="7.20000020861627,11.3999992400407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.20000020861627,11.3999992400407"
+                    Point2="11.2000002086163,11.3999992400407"
+                    Point3="11.2000002086163,15.3999992400407" />
+                  <mssgle:LineSegment
+                    End="11.2000002086163,15.2999984800815" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.5913866144419,16.3999992400407,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Calendar_Dim]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Lookup 1">
     <Properties>
@@ -1409,6 +1476,29 @@ WHERE
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[Account_Dim]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup 2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Client_Dim]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -1440,73 +1530,6 @@ WHERE
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Calendar_Dim]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup 2">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Client_Dim]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\TransactionLedgerDB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\FactTransaction">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
