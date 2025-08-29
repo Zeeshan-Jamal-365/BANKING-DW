@@ -70,7 +70,7 @@ A Star Schema was chosen for its simplicity, query performance, and ease of use 
 
 ```mermaid
 erDiagram
-    DimDate ||--|{ Transaction_Fact : "has"
+    DimCalendar ||--|{ Transaction_Fact : "has"
     DimAccount ||--|{ Transaction_Fact : "has"
     DimClient ||--|{ Transaction_Fact : "has"
     DimLocation ||--|{ Transaction_Fact : "has"
