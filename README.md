@@ -85,7 +85,7 @@ erDiagram
         float balance
     }
 
-    DimDate {
+    DimCalendar {
         int CalendarKey PK
         date FullDate
         varchar DayOfWeek_
