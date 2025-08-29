@@ -1,8 +1,3 @@
-Of course. Adding the data source is a critical part of a good README. I will add a dedicated "Data Source" section.
-
-Here is the updated README with the new section included.
-
----
 
 # Data Warehouse for Banking Analytics (DBS: B9DA111)
 
